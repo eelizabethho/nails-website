@@ -357,7 +357,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=61574640418593"
+              href="https://www.facebook.com/p/My-Color-Nail-Spa-61580156893192/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#c8b89a]/50 hover:text-[#c9a84c] transition-colors duration-300"
