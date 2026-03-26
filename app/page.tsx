@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AnimateIn from "./components/AnimateIn";
+import Marquee from "./components/Marquee";
 
 export default function Home() {
   return (
@@ -48,11 +49,18 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Floating sparkles */}
+        <div className="absolute bottom-32 left-0 right-0 h-24 pointer-events-none">
+          <div className="sparkle" /><div className="sparkle" /><div className="sparkle" /><div className="sparkle" /><div className="sparkle" />
+        </div>
+
         <div className="scroll-indicator absolute bottom-10 left-1/2 flex flex-col items-center gap-2 text-[#c9a84c]/50">
           <span className="text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-jost)" }}>Scroll</span>
           <div className="w-px h-10 bg-linear-to-b from-[#c9a84c]/50 to-transparent" />
         </div>
       </section>
+
+      <Marquee />
 
       {/* ── VIDEO GALLERY ── */}
       <section className="py-28 px-6 bg-[#0d0a08]">
@@ -106,7 +114,7 @@ export default function Home() {
               { icon: "✦", title: "Your Comfort First", desc: "A calm, welcoming space where you can fully relax and be taken care of." },
             ].map((item, i) => (
               <AnimateIn key={item.title} direction="up" delay={i * 80}>
-                <div className="flex flex-col gap-4 p-6 border border-[#c9a84c]/10 hover:border-[#c9a84c]/30 hover:bg-[#1a1410] transition-all duration-300">
+                <div className="card-shine flex flex-col gap-4 p-6 border border-[#c9a84c]/10 hover:border-[#c9a84c]/30 hover:bg-[#1a1410] hover:-translate-y-1 transition-all duration-300">
                   <span className="text-[#c9a84c] text-xl">{item.icon}</span>
                   <h3 className="text-lg font-semibold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>{item.title}</h3>
                   <p className="text-[#c8b89a]/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>{item.desc}</p>
@@ -325,53 +333,92 @@ export default function Home() {
       </section>
 
       {/* ── BOOKING CTA ── */}
-      <section id="booking" className="relative py-28 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-[#5c2d6e] via-[#1a0e10] to-[#3e1c10]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(201,168,76,0.07),transparent)] hero-glow-1" />
-        <AnimateIn direction="up" className="relative z-10 max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
-          <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>Ready?</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
-            Book Your Appointment
-          </h2>
-          <span className="gold-divider-shimmer w-32 block" />
-          <p className="text-[#c8b89a] max-w-md leading-relaxed">
-            Treat yourself to the nail experience you deserve. Spots fill up fast —
-            reserve yours today.
-          </p>
-          <a
-            href="tel:+17033303103"
-            className="mt-2 px-10 py-4 bg-[#c9a84c] text-[#0d0a08] font-semibold tracking-widest uppercase text-sm hover:bg-[#e8c97a] hover:scale-105 active:scale-95 hover:shadow-[0_4px_24px_rgba(201,168,76,0.3)] transition-all duration-300"
-          >
-            Call (703) 330-3103
-          </a>
-          <div className="flex items-center gap-5 mt-1">
-            <a
-              href="https://www.instagram.com/mycolornailsnspa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c8b89a]/50 hover:text-[#c9a84c] transition-colors duration-300"
-              aria-label="Instagram"
-            >
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-            <a
-              href="https://www.facebook.com/p/My-Color-Nail-Spa-61580156893192/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c8b89a]/50 hover:text-[#c9a84c] transition-colors duration-300"
-              aria-label="Facebook"
-            >
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-          </div>
-          <p className="text-[#c8b89a]/40 text-xs tracking-wider" style={{ fontFamily: "var(--font-jost)" }}>
-            Walk-ins welcome when available
-          </p>
-        </AnimateIn>
+      <section id="booking" className="relative min-h-[80vh] flex items-center overflow-hidden">
+        {/* Layered backgrounds */}
+        <div className="absolute inset-0 bg-[#0a0806]" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#5c2d6e]/60 via-[#0a0806] to-[#3e1c10]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(201,168,76,0.06),transparent)] hero-glow-1" />
+        {/* Decorative corner lines */}
+        <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-[#c9a84c]/20" />
+        <div className="absolute top-8 right-8 w-16 h-16 border-t border-r border-[#c9a84c]/20" />
+        <div className="absolute bottom-8 left-8 w-16 h-16 border-b border-l border-[#c9a84c]/20" />
+        <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-[#c9a84c]/20" />
+
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+          {/* Left */}
+          <AnimateIn direction="left">
+            <div className="flex flex-col gap-6">
+              <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>Ready?</p>
+              <h2 className="text-5xl md:text-6xl font-bold text-[#f0e8d8] leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
+                Book Your<br />
+                <span className="italic text-[#c9a84c]">Appointment</span>
+              </h2>
+              <span className="gold-divider-shimmer w-20 block" />
+              <p className="text-[#c8b89a] leading-relaxed max-w-sm" style={{ fontFamily: "var(--font-jost)" }}>
+                Treat yourself to the experience you deserve. Our team is ready — just give us a call or walk in.
+              </p>
+              <div className="flex items-center gap-4 mt-2">
+                <a
+                  href="https://www.instagram.com/mycolornailsnspa/"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 flex items-center justify-center border border-[#c9a84c]/20 text-[#c8b89a]/50 hover:text-[#c9a84c] hover:border-[#c9a84c]/50 transition-all duration-300"
+                >
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a
+                  href="https://www.facebook.com/p/My-Color-Nail-Spa-61580156893192/"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 flex items-center justify-center border border-[#c9a84c]/20 text-[#c8b89a]/50 hover:text-[#c9a84c] hover:border-[#c9a84c]/50 transition-all duration-300"
+                >
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <span className="text-[#c8b89a]/30 text-xs tracking-widest ml-1" style={{ fontFamily: "var(--font-jost)" }}>Walk-ins welcome</span>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Right */}
+          <AnimateIn direction="right">
+            <div className="flex flex-col gap-5">
+              {/* Big phone number */}
+              <div className="flex flex-col gap-2 p-8 border border-[#c9a84c]/15 bg-[#c9a84c]/03 hover:border-[#c9a84c]/40 transition-all duration-500 group">
+                <p className="text-[#c9a84c]/50 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-jost)" }}>Call Us</p>
+                <a
+                  href="tel:+17033303103"
+                  className="phone-pulse text-3xl md:text-4xl font-bold text-[#f0e8d8] hover:text-[#c9a84c] transition-colors duration-300 tracking-wide"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  (703) 330-3103
+                </a>
+              </div>
+
+              {/* Book CTA button */}
+              <a
+                href="tel:+17033303103"
+                className="group relative flex items-center justify-between px-8 py-5 bg-[#c9a84c] text-[#0d0a08] overflow-hidden hover:bg-[#e8c97a] transition-colors duration-300"
+              >
+                <span className="font-semibold tracking-widest uppercase text-sm" style={{ fontFamily: "var(--font-jost)" }}>Book Appointment</span>
+                <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </a>
+
+              {/* Info tiles */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-4 border border-[#c9a84c]/10 flex flex-col gap-1">
+                  <p className="text-[#c9a84c]/50 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-jost)" }}>Location</p>
+                  <p className="text-[#f0e8d8] text-sm" style={{ fontFamily: "var(--font-jost)" }}>Sudley Manor Square</p>
+                  <p className="text-[#c8b89a]/60 text-xs" style={{ fontFamily: "var(--font-jost)" }}>Manassas, VA 20109</p>
+                </div>
+                <div className="p-4 border border-[#c9a84c]/10 flex flex-col gap-1">
+                  <p className="text-[#c9a84c]/50 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-jost)" }}>Hours Today</p>
+                  <p className="text-[#f0e8d8] text-sm" style={{ fontFamily: "var(--font-jost)" }}>Mon – Fri</p>
+                  <p className="text-[#c8b89a]/60 text-xs" style={{ fontFamily: "var(--font-jost)" }}>10 AM – 7:30 PM</p>
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
       </section>
 
       <Footer />

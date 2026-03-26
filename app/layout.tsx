@@ -25,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${jost.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-[#0d0a08] text-[#f0e8d8]">
-        {children}
+        <div className="page-enter flex flex-col min-h-full">
+          {children}
+        </div>
       </body>
     </html>
   );
