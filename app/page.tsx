@@ -88,6 +88,242 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── WHY CHOOSE US ── */}
+      <section className="py-28 px-6 bg-[#100c09]">
+        <div className="max-w-5xl mx-auto">
+          <AnimateIn direction="up" className="text-center mb-16">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>The Difference</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
+              Why My Color
+            </h2>
+            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          </AnimateIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: "✦", title: "Premium Products", desc: "We use only top-tier, skin-safe products that protect your nails and last." },
+              { icon: "✦", title: "Strict Sanitation", desc: "Every tool is sterilized between every client. Your safety is non-negotiable." },
+              { icon: "✦", title: "Expert Artists", desc: "Our team brings skill, creativity, and care to every single set." },
+              { icon: "✦", title: "Your Comfort First", desc: "A calm, welcoming space where you can fully relax and be taken care of." },
+            ].map((item, i) => (
+              <AnimateIn key={item.title} direction="up" delay={i * 80}>
+                <div className="flex flex-col gap-4 p-6 border border-[#c9a84c]/10 hover:border-[#c9a84c]/30 hover:bg-[#1a1410] transition-all duration-300">
+                  <span className="text-[#c9a84c] text-xl">{item.icon}</span>
+                  <h3 className="text-lg font-semibold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>{item.title}</h3>
+                  <p className="text-[#c8b89a]/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>{item.desc}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED SERVICES ── */}
+      <section className="py-28 px-6 bg-[#0d0a08]">
+        <div className="max-w-5xl mx-auto">
+          <AnimateIn direction="up" className="text-center mb-16">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>Most Loved</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
+              Fan Favorites
+            </h2>
+            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          </AnimateIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                tag: "Head Spa",
+                name: "Signature Bliss\nHead Spa + Facial",
+                desc: "Our ultimate all-in experience — candle oil scalp massage, Dermalogica facial, ASMR relaxation & herbal drink.",
+                time: "80 min",
+                price: "$150",
+                bg: "from-[#3d1e4a] to-[#1a0e1a]",
+              },
+              {
+                tag: "Pedicure",
+                name: "My Color\nSignature Bliss",
+                desc: "20-min candle massage, hot stones, paraffin, essential oil soak, and a warm eye comfort warmer.",
+                time: "60 min",
+                price: "$79",
+                bg: "from-[#3e1c10] to-[#0d0a08]",
+              },
+              {
+                tag: "Manicure",
+                name: "Liquid Gel\nFull Set",
+                desc: "Durable, glossy, and long-lasting. Liquid gel gives your nails strength and a flawless mirror finish.",
+                time: "60 min",
+                price: "$60+",
+                bg: "from-[#2d1b3d] to-[#0d0a08]",
+              },
+            ].map((s, i) => (
+              <AnimateIn key={s.name} direction="up" delay={i * 100}>
+                <div className={`group relative flex flex-col justify-between p-8 h-full min-h-72 bg-linear-to-br ${s.bg} border border-[#c9a84c]/10 hover:border-[#c9a84c]/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(201,168,76,0.1)] transition-all duration-400 overflow-hidden`}>
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(201,168,76,0.05),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative z-10 flex flex-col gap-4">
+                    <span className="text-xs tracking-[0.3em] uppercase text-[#c9a84c]/70" style={{ fontFamily: "var(--font-jost)" }}>{s.tag}</span>
+                    <h3 className="text-2xl font-bold text-[#f0e8d8] leading-snug whitespace-pre-line" style={{ fontFamily: "var(--font-playfair)" }}>{s.name}</h3>
+                    <p className="text-[#c8b89a]/70 text-sm leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>{s.desc}</p>
+                  </div>
+                  <div className="relative z-10 flex items-center justify-between mt-6 pt-4 border-t border-[#c9a84c]/10">
+                    <span className="text-[#c8b89a]/50 text-xs" style={{ fontFamily: "var(--font-jost)" }}>{s.time}</span>
+                    <span className="text-[#c9a84c] text-lg font-semibold" style={{ fontFamily: "var(--font-jost)" }}>{s.price}</span>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+          <AnimateIn direction="fade" delay={300} className="text-center mt-10">
+            <Link
+              href="/services"
+              className="inline-block px-8 py-3 border border-[#c9a84c]/40 text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c] hover:text-[#0d0a08] transition-all duration-300"
+              style={{ fontFamily: "var(--font-jost)" }}
+            >
+              View All Services
+            </Link>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── GALLERY CTA ── */}
+      <section className="relative py-24 px-6 overflow-hidden bg-[#0d0a08]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(92,45,110,0.15),transparent)]" />
+        <AnimateIn direction="up" className="relative z-10 max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col gap-3 text-center md:text-left">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>Our Work</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
+              See What We&apos;ve Been Creating
+            </h2>
+            <p className="text-[#c8b89a]/70 text-sm leading-relaxed max-w-md" style={{ fontFamily: "var(--font-jost)" }}>
+              From intricate nail art to deeply relaxing head spas — browse our gallery to get inspired for your next visit.
+            </p>
+          </div>
+          <Link
+            href="/gallery"
+            className="shrink-0 px-10 py-4 bg-[#c9a84c] text-[#0d0a08] font-semibold tracking-widest uppercase text-sm hover:bg-[#e8c97a] hover:scale-105 transition-all duration-300"
+            style={{ fontFamily: "var(--font-jost)" }}
+          >
+            View Gallery
+          </Link>
+        </AnimateIn>
+      </section>
+
+      {/* ── REVIEWS ── */}
+      <section className="py-28 px-6 bg-linear-to-b from-[#100c09] to-[#0d0a08]">
+        <div className="max-w-5xl mx-auto">
+          <AnimateIn direction="up" className="text-center mb-16">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>Kind Words</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
+              What Clients Say
+            </h2>
+            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          </AnimateIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Elizabeth Ho",
+                text: "Came in last Tuesday and this is literally the BEST nail salon I've ever been to. I got a Gel X manicure with Tee and she does the BEST nails plus she's such a kind and sweet person. I also tried their head spa — they use high quality essential oils and dermatological grade products and it honestly felt like a real spa treatment. 10/10 experience!",
+              },
+              {
+                name: "Abby Palmer",
+                text: "I found this salon 5 months ago & it's honestly the best one I've ever been to. Tee always does such an amazing job bringing my ideas to life. She's the absolute best! From the atmosphere to the services to the staff, it's always a very good time when I book an appointment & something I look forward to each month.",
+              },
+              {
+                name: "Madeleine Houser",
+                text: "I got my nails done here recently and they turned out so good!! Tee did an amazing job, and I could tell she was really taking her time to do well and making sure it matched what I wanted! Everyone there was so friendly and kind! I overheard multiple people talking about how they had the best foot massage and head massage there!",
+              },
+            ].map((r, i) => (
+              <AnimateIn key={r.name} direction="up" delay={i * 100}>
+                <div className="flex flex-col gap-5 p-8 h-full bg-[#1a1410] border border-[#c9a84c]/10 hover:border-[#c9a84c]/25 transition-all duration-300">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <span key={si} className="text-[#c9a84c] text-sm">★</span>
+                    ))}
+                  </div>
+                  <p className="text-[#c8b89a] text-sm leading-relaxed italic flex-1" style={{ fontFamily: "var(--font-jost)" }}>
+                    &ldquo;{r.text}&rdquo;
+                  </p>
+                  <p className="text-[#f0e8d8]/60 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-jost)" }}>
+                    — {r.name}
+                  </p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+          <AnimateIn direction="fade" delay={300} className="text-center mt-10">
+            <a
+              href="https://www.google.com/search?q=my+color+nails+spa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs tracking-widest uppercase text-[#c9a84c]/60 hover:text-[#c9a84c] transition-colors duration-300 border-b border-[#c9a84c]/20 pb-0.5"
+              style={{ fontFamily: "var(--font-jost)" }}
+            >
+              Read more on Google ↗
+            </a>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── LOCATION & HOURS ── */}
+      <section className="py-28 px-6 bg-[#100c09]">
+        <div className="max-w-5xl mx-auto">
+          <AnimateIn direction="up" className="text-center mb-16">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>Find Us</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
+              Visit Us
+            </h2>
+            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          </AnimateIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Info */}
+            <AnimateIn direction="left">
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-2">
+                  <p className="text-[#c9a84c]/60 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-jost)" }}>Location</p>
+                  <p className="text-[#f0e8d8] text-lg font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>Sudley Manor Square</p>
+                  <p className="text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>7827 Sudley Rd, Manassas, VA 20109</p>
+                  <a
+                    href="https://maps.google.com/?q=7827+Sudley+Rd+Manassas+VA+20109"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#c9a84c]/60 text-xs tracking-widest uppercase hover:text-[#c9a84c] transition-colors duration-300 border-b border-[#c9a84c]/20 pb-0.5 w-fit"
+                    style={{ fontFamily: "var(--font-jost)" }}
+                  >
+                    Get Directions ↗
+                  </a>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-[#c9a84c]/60 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-jost)" }}>Phone</p>
+                  <a href="tel:+17033303103" className="text-[#f0e8d8] text-lg hover:text-[#c9a84c] transition-colors duration-300" style={{ fontFamily: "var(--font-playfair)" }}>
+                    (703) 330-3103
+                  </a>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Hours */}
+            <AnimateIn direction="right">
+              <div className="flex flex-col gap-4">
+                <p className="text-[#c9a84c]/60 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-jost)" }}>Hours</p>
+                <div className="flex flex-col divide-y divide-[#c9a84c]/08">
+                  {[
+                    { day: "Monday", hours: "10:00 AM – 7:30 PM" },
+                    { day: "Tuesday", hours: "10:00 AM – 7:30 PM" },
+                    { day: "Wednesday", hours: "10:00 AM – 7:30 PM" },
+                    { day: "Thursday", hours: "10:00 AM – 7:30 PM" },
+                    { day: "Friday", hours: "10:00 AM – 7:30 PM" },
+                    { day: "Saturday", hours: "10:00 AM – 7:00 PM" },
+                    { day: "Sunday", hours: "11:00 AM – 5:00 PM" },
+                  ].map(({ day, hours }) => (
+                    <div key={day} className="flex justify-between py-3 text-sm">
+                      <span className="text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>{day}</span>
+                      <span className="text-[#f0e8d8]" style={{ fontFamily: "var(--font-jost)" }}>{hours}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
       {/* ── BOOKING CTA ── */}
       <section id="booking" className="relative py-28 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-br from-[#5c2d6e] via-[#1a0e10] to-[#3e1c10]" />
@@ -103,10 +339,10 @@ export default function Home() {
             reserve yours today.
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+17033303103"
             className="mt-2 px-10 py-4 bg-[#c9a84c] text-[#0d0a08] font-semibold tracking-widest uppercase text-sm hover:bg-[#e8c97a] hover:scale-105 active:scale-95 hover:shadow-[0_4px_24px_rgba(201,168,76,0.3)] transition-all duration-300"
           >
-            Call to Book
+            Call (703) 330-3103
           </a>
           <p className="text-[#c8b89a]/50 text-xs tracking-wider" style={{ fontFamily: "var(--font-jost)" }}>
             Or DM us on Instagram &nbsp;·&nbsp; Walk-ins welcome when available

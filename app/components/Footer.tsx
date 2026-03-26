@@ -20,9 +20,14 @@ export default function Footer() {
           <li><Link href="/about" className="hover:text-[#c9a84c] transition-colors duration-300">About</Link></li>
           <li><Link href="/#booking" className="hover:text-[#c9a84c] transition-colors duration-300">Book</Link></li>
         </ul>
-        <p className="text-xs text-[#c8b89a]/30 tracking-wider" style={{ fontFamily: "var(--font-jost)" }}>
-          © {new Date().getFullYear()} My Color Nails and Spa. All rights reserved.
-        </p>
+        <div className="flex flex-col items-center md:items-end gap-1">
+          <a href="tel:+17033303103" className="text-xs text-[#c8b89a]/50 hover:text-[#c9a84c] transition-colors duration-300" style={{ fontFamily: "var(--font-jost)" }}>
+            (703) 330-3103
+          </a>
+          <p className="text-xs text-[#c8b89a]/30 tracking-wider text-center md:text-right" style={{ fontFamily: "var(--font-jost)" }}>
+            © {new Date().getFullYear()} My Color Nails and Spa. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
