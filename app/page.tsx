@@ -255,53 +255,94 @@ export default function Home() {
             <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
           </AnimateIn>
           <div className="flex flex-col gap-20">
-            {[
-              {
-                label: "Head Spa",
-                accent: "bg-[#3d1e4a]",
-                photos: ["bg-[#3d1e4a]", "bg-[#5c2d6e]", "bg-[#3a1d46]", "bg-[#2e1640]"],
-              },
-              {
-                label: "Manicure",
-                accent: "bg-[#3e1c10]",
-                photos: ["bg-[#3e1c10]", "bg-[#2a1508]", "bg-[#1a1410]", "bg-[#4a2010]"],
-              },
-              {
-                label: "Pedicure",
-                accent: "bg-[#201828]",
-                photos: ["bg-[#201828]", "bg-[#3d1e4a]", "bg-[#2a1508]", "bg-[#1a1410]"],
-              },
-            ].map((section, si) => (
-              <AnimateIn key={section.label} direction="up" delay={si * 80}>
-                <div className="flex flex-col gap-5">
-                  {/* Section label */}
-                  <div className="flex items-center gap-4">
-                    <h3 className="text-2xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
-                      {section.label}
-                    </h3>
-                    <span className="flex-1 gold-divider-shimmer" />
-                  </div>
-                  {/* Photos — 4 per row, first one taller */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {section.photos.map((bg, i) => (
-                      <div
-                        key={i}
-                        className={`${bg} ${i === 0 ? "row-span-2 md:row-span-1 aspect-3/4 md:aspect-square" : "aspect-square"} flex items-center justify-center border border-[#c9a84c]/10 hover:border-[#c9a84c]/40 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(201,168,76,0.1)] transition-all duration-500 group cursor-pointer`}
-                      >
-                        <span className="text-[#c9a84c]/25 text-xs tracking-widest uppercase group-hover:text-[#c9a84c]/60 transition-colors duration-300" style={{ fontFamily: "var(--font-jost)" }}>
-                          Photo
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+            {/* ── Manicure ── */}
+            <AnimateIn direction="up">
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-4">
+                  <h3 className="text-2xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>Manicure</h3>
+                  <span className="flex-1 gold-divider-shimmer" />
                 </div>
-              </AnimateIn>
-            ))}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    // row 1: col1=img, col2=img, col3=img, col4=vid
+                    { type: "img", src: "m1.png" },
+                    { type: "img", src: "m2.png" },
+                    { type: "img", src: "m3.png" },
+                    { type: "vid", src: "v1.mov" },
+                    // row 2: col1=img, col2=vid, col3=img, col4=img
+                    { type: "img", src: "m4.png" },
+                    { type: "vid", src: "v2.mov" },
+                    { type: "img", src: "m5.png" },
+                    { type: "img", src: "m6.png" },
+                    // row 3: col1=vid, col2=img, col3=vid, col4=img
+                    { type: "vid", src: "v3.MP4" },
+                    { type: "img", src: "m7.png" },
+                    { type: "vid", src: "v4.MP4" },
+                    { type: "img", src: "m8.png" },
+                  ].map((item, i) => (
+                    <AnimateIn key={item.src} direction="fade" delay={i * 50}>
+                      <div className="relative aspect-square overflow-hidden border border-[#c9a84c]/10 hover:border-[#c9a84c]/40 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(201,168,76,0.12)] transition-all duration-500 group cursor-pointer">
+                        {item.type === "img" ? (
+                          <Image
+                            src={`/manicure/${item.src}`}
+                            alt={`Manicure ${i + 1}`}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                        ) : (
+                          <video
+                            src={`/manicure/${item.src}`}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        )}
+                      </div>
+                    </AnimateIn>
+                  ))}
+                </div>
+              </div>
+            </AnimateIn>
 
-            <AnimateIn direction="fade" delay={100}>
-              <p className="text-center text-[#c8b89a]/30 text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-jost)" }}>
-                Photos coming soon — follow us on Instagram
-              </p>
+            {/* ── Head Spa ── */}
+            <AnimateIn direction="up" delay={80}>
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-4">
+                  <h3 className="text-2xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>Head Spa</h3>
+                  <span className="flex-1 gold-divider-shimmer" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {["bg-[#3d1e4a]", "bg-[#5c2d6e]", "bg-[#3a1d46]", "bg-[#2e1640]"].map((bg, i) => (
+                    <div key={i} className={`${bg} aspect-square flex items-center justify-center border border-[#c9a84c]/10 hover:border-[#c9a84c]/30 transition-all duration-500 group cursor-pointer`}>
+                      <span className="text-[#c9a84c]/25 text-xs tracking-widest uppercase group-hover:text-[#c9a84c]/60 transition-colors duration-300" style={{ fontFamily: "var(--font-jost)" }}>
+                        Coming Soon
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* ── Pedicure ── */}
+            <AnimateIn direction="up" delay={160}>
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-4">
+                  <h3 className="text-2xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>Pedicure</h3>
+                  <span className="flex-1 gold-divider-shimmer" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {["bg-[#201828]", "bg-[#3d1e4a]", "bg-[#2a1508]", "bg-[#1a1410]"].map((bg, i) => (
+                    <div key={i} className={`${bg} aspect-square flex items-center justify-center border border-[#c9a84c]/10 hover:border-[#c9a84c]/30 transition-all duration-500 group cursor-pointer`}>
+                      <span className="text-[#c9a84c]/25 text-xs tracking-widest uppercase group-hover:text-[#c9a84c]/60 transition-colors duration-300" style={{ fontFamily: "var(--font-jost)" }}>
+                        Coming Soon
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </AnimateIn>
           </div>
         </div>
