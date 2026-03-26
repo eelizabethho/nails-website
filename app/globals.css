@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --brown: #6b3a2a;
+  --brown-light: #8c5040;
+  --black: #0d0a08;
+  --black-mid: #1a1410;
+  --black-card: #201810;
+  --purple-dark: #3d1e4a;
+  --purple-mid: #5c2d6e;
+  --cream: #f0e8d8;
+  --cream-muted: #c8b89a;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jost), Arial, sans-serif;
+  background-color: var(--black);
+  color: var(--cream);
+}
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Gold shimmer divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+}
+
+/* ── Hero entrance animations ── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes expandWidth {
+  from { width: 0; opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+@keyframes logoPulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.2)); }
+  50%       { filter: drop-shadow(0 0 48px rgba(201,168,76,0.5)); }
+}
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes bgGlowPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* Hero element classes */
+.hero-logo {
+  animation: heroFadeIn 1s ease-out 0.2s both, logoPulse 4s ease-in-out 1.2s infinite;
+}
+.hero-divider {
+  animation: expandWidth 1s ease-out 0.8s both;
+  display: block;
+}
+.hero-tagline {
+  animation: heroFadeUp 0.9s ease-out 1s both;
+}
+.hero-btns {
+  animation: heroFadeUp 0.9s ease-out 1.3s both;
+}
+.hero-glow-1 {
+  animation: bgGlowPulse 6s ease-in-out infinite;
+}
+.hero-glow-2 {
+  animation: bgGlowPulse 8s ease-in-out 2s infinite;
+}
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Gold shimmer on dividers */
+.gold-divider-shimmer {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c9a84c 30%,
+    #f0d980 50%,
+    #c9a84c 70%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Subtle noise texture overlay */
+.texture-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 }
