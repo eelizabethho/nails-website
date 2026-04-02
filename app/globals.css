@@ -8,8 +8,8 @@
   --black: #0d0a08;
   --black-mid: #1a1410;
   --black-card: #201810;
-  --purple-dark: #3d1e4a;
-  --purple-mid: #5c2d6e;
+  --purple-dark: #3d1f4a;
+  --purple-mid: #5c2870;
   --cream: #f0e8d8;
   --cream-muted: #c8b89a;
 }
@@ -186,3 +186,110 @@ body {
 .texture-overlay {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 }
+
+/* ── Falling petals ── */
+@keyframes petalDrift {
+  0%   { transform: translateY(-40px) translateX(0px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.55; }
+  85%  { opacity: 0.25; }
+  100% { transform: translateY(105vh) translateX(35px) rotate(200deg); opacity: 0; }
+}
+@keyframes petalDrift2 {
+  0%   { transform: translateY(-40px) translateX(0px) rotate(45deg); opacity: 0; }
+  10%  { opacity: 0.45; }
+  85%  { opacity: 0.2; }
+  100% { transform: translateY(105vh) translateX(-25px) rotate(240deg); opacity: 0; }
+}
+.petal {
+  position: absolute;
+  width: 9px;
+  height: 13px;
+  border-radius: 80% 0 80% 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.8), rgba(232,201,122,0.6));
+  pointer-events: none;
+  opacity: 0;
+}
+.petal:nth-child(1)  { left: 8%;  animation: petalDrift  9s ease-in-out 0s    infinite; }
+.petal:nth-child(2)  { left: 18%; animation: petalDrift2 11s ease-in-out 2s    infinite; }
+.petal:nth-child(3)  { left: 32%; animation: petalDrift  10s ease-in-out 4s   infinite; }
+.petal:nth-child(4)  { left: 47%; animation: petalDrift2 8s ease-in-out  1s   infinite; }
+.petal:nth-child(5)  { left: 58%; animation: petalDrift  12s ease-in-out 3s   infinite; }
+.petal:nth-child(6)  { left: 70%; animation: petalDrift2 9.5s ease-in-out 5s  infinite; }
+.petal:nth-child(7)  { left: 82%; animation: petalDrift  10.5s ease-in-out 1.5s infinite; }
+.petal:nth-child(8)  { left: 91%; animation: petalDrift2 8.5s ease-in-out 6s  infinite; }
+
+/* ── Gold ring pulse (decorative orbs) ── */
+@keyframes goldRingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.0), 0 0 30px rgba(201,168,76,0.1); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,168,76,0.0), 0 0 60px rgba(201,168,76,0.25); }
+}
+.gold-ring-pulse {
+  animation: goldRingPulse 4s ease-in-out infinite;
+}
+
+/* ── Animated gold border ── */
+@keyframes borderShimmer {
+  0%   { border-color: rgba(201,168,76,0.15); }
+  50%  { border-color: rgba(201,168,76,0.5); }
+  100% { border-color: rgba(201,168,76,0.15); }
+}
+.border-gold-pulse {
+  animation: borderShimmer 3s ease-in-out infinite;
+}
+
+/* ── Float for decorative elements ── */
+@keyframes goldFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+  33%       { transform: translateY(-12px) rotate(3deg); opacity: 0.7; }
+  66%       { transform: translateY(-6px) rotate(-2deg); opacity: 0.5; }
+}
+.gold-float {
+  animation: goldFloat 6s ease-in-out infinite;
+}
+
+/* ── Section gold glow on hover ── */
+.section-hover-glow {
+  transition: box-shadow 0.5s ease;
+}
+.section-hover-glow:hover {
+  box-shadow: 0 0 60px rgba(201,168,76,0.08) inset;
+}
+
+/* ── Gold text shimmer ── */
+@keyframes textGoldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.gold-text-shimmer {
+  background: linear-gradient(90deg, #c9a84c 0%, #f0d980 40%, #e8c97a 50%, #f0d980 60%, #c9a84c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGoldShimmer 4s linear infinite;
+}
+
+/* ── Booking corner brackets animate in ── */
+@keyframes bracketExpand {
+  from { width: 0; height: 0; opacity: 0; }
+  to   { width: 4rem; height: 4rem; opacity: 1; }
+}
+.bracket-tl { animation: bracketExpand 0.8s ease-out 0.3s both; transform-origin: top left; }
+.bracket-tr { animation: bracketExpand 0.8s ease-out 0.5s both; transform-origin: top right; }
+.bracket-bl { animation: bracketExpand 0.8s ease-out 0.7s both; transform-origin: bottom left; }
+.bracket-br { animation: bracketExpand 0.8s ease-out 0.9s both; transform-origin: bottom right; }
+
+/* ── Sparkles — extra sizes ── */
+.sparkle-lg {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e8c97a, #c9a84c);
+  pointer-events: none;
+  animation: sparkleFloat 5s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(201,168,76,0.8);
+}
+.sparkle-lg:nth-child(6) { left: 22%; animation-delay: 0.7s; animation-duration: 5.5s; }
+.sparkle-lg:nth-child(7) { left: 60%; animation-delay: 2.3s; animation-duration: 4.8s; }
+.sparkle-lg:nth-child(8) { left: 78%; animation-delay: 1.2s; animation-duration: 6s; }
