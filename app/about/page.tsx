@@ -21,10 +21,10 @@ export default function AboutPage() {
             <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
           </AnimateIn>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <AnimateIn direction="left">
-              <div className="relative">
-                <div className="relative w-full aspect-4/5 overflow-hidden border border-[#c9a84c]/20">
+          <div className="grid md:grid-cols-2 gap-16 items-stretch">
+            <AnimateIn direction="left" className="h-full">
+              <div className="relative h-full min-h-125">
+                <div className="relative w-full h-full overflow-hidden border border-[#c9a84c]/20">
                   <Image
                     src="/store/3FA8720D-2CE9-4534-81A3-934F14052F72.jpeg"
                     alt="My Color Nails and Spa interior"
@@ -32,7 +32,6 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-full aspect-4/5 border border-[#c9a84c]/10 pointer-events-none" />
                 <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-[#c9a84c]/60 pointer-events-none" />
                 <div className="absolute bottom-6 right-2 w-12 h-12 border-b border-r border-[#c9a84c]/60 pointer-events-none" />
               </div>
