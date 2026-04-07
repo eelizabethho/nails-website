@@ -69,6 +69,7 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
             </div>
           </AnimateIn>
 
