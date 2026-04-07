@@ -11,33 +11,31 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Nav />
-      <main className="flex-1 pt-32 pb-28 px-6 bg-[#140d18]">
+      <main className="flex-1 bg-[#140d18]">
+        {/* Full-width hero photo */}
+        <div className="relative w-full h-[55vh] min-h-80 overflow-hidden border-b border-[#c9a84c]/15">
+          <Image
+            src="/store/3FA8720D-2CE9-4534-81A3-934F14052F72.jpeg"
+            alt="My Color Nails and Spa interior"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-[#140d18]/30 via-transparent to-[#140d18]/60" />
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-2" style={{ fontFamily: "var(--font-jost)" }}>Our Story</p>
+            <h1 className="text-5xl md:text-6xl font-bold text-[#f5eee0]" style={{ fontFamily: "var(--font-playfair)" }}>About Us</h1>
+          </div>
+        </div>
+
+        <div className="pt-20 pb-28 px-6">
         <div className="max-w-4xl mx-auto">
-          <AnimateIn direction="up" className="text-center mb-20">
-            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>Our Story</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-[#f0e8d8]" style={{ fontFamily: "var(--font-playfair)" }}>
-              About Us
-            </h1>
-            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          <AnimateIn direction="up" className="text-center mb-16">
+            <span className="gold-divider-shimmer w-32 mx-auto block" />
           </AnimateIn>
 
-          <div className="grid md:grid-cols-2 gap-16 items-stretch">
-            <AnimateIn direction="left" className="h-full">
-              <div className="relative h-full min-h-125">
-                <div className="relative w-full h-full overflow-hidden border border-[#c9a84c]/20">
-                  <Image
-                    src="/store/3FA8720D-2CE9-4534-81A3-934F14052F72.jpeg"
-                    alt="My Color Nails and Spa interior"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-[#c9a84c]/60 pointer-events-none" />
-                <div className="absolute bottom-6 right-2 w-12 h-12 border-b border-r border-[#c9a84c]/60 pointer-events-none" />
-              </div>
-            </AnimateIn>
-
-            <AnimateIn direction="right">
+          <AnimateIn direction="up">
+            <div className="max-w-2xl mx-auto">
               <div className="flex flex-col gap-6">
                 <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>About My Color Nails &amp; Spa</p>
                 <h2 className="text-4xl font-bold text-[#f5eee0] leading-snug" style={{ fontFamily: "var(--font-playfair)" }}>
@@ -71,9 +69,8 @@ export default function AboutPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </AnimateIn>
-          </div>
+            </div>
+          </AnimateIn>
 
           {/* Photo grid */}
           <AnimateIn direction="up" className="mt-28">
@@ -100,6 +97,7 @@ export default function AboutPage() {
               </div>
             </div>
           </AnimateIn>
+        </div>
         </div>
       </main>
       <Footer />
