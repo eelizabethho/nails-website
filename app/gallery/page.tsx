@@ -23,9 +23,9 @@ const manicureItems = [
 ];
 
 const headSpaPedicureVideos = [
-  "v12044gd0000d47r05fog65iquk3vdb0 3.MP4",
-  "v12044gd0000d4qd4tfog65tcsdbcfc0 2.MP4",
-  "v12044gd0000d62hdcvog65upldnv6ig 2.MP4",
+  "v12044gd0000d47r05fog65iquk3vdb0_3.MP4",
+  "v12044gd0000d4qd4tfog65tcsdbcfc0_2.MP4",
+  "v12044gd0000d62hdcvog65upldnv6ig_2.MP4",
   "v12044gd0000d6h1eafog65kqs1ruavg.MP4",
 ];
 
@@ -92,7 +92,7 @@ export default function GalleryPage() {
                     <AnimateIn key={file} direction="fade" delay={i * 60}>
                       <div className="relative aspect-square overflow-hidden border border-[#c9a84c]/10 hover:border-[#c9a84c]/40 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(201,168,76,0.12)] transition-all duration-500 group cursor-pointer">
                         <video
-                          src={`/pedicuare/${encodeURIComponent(file)}`}
+                          src={`/pedicuare/${file}`}
                           autoPlay
                           loop
                           muted
