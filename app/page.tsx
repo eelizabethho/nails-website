@@ -304,6 +304,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── STEP INSIDE ── */}
+      <section className="py-28 px-6 bg-[#160f1c] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto">
+          <AnimateIn direction="up" className="text-center mb-12">
+            <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-3" style={{ fontFamily: "var(--font-jost)" }}>Our Space</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#f5eee0]" style={{ fontFamily: "var(--font-playfair)" }}>Step Inside</h2>
+            <span className="gold-divider-shimmer w-32 mx-auto mt-6 block" />
+          </AnimateIn>
+          {/* Big + side layout */}
+          <AnimateIn direction="up" delay={100}>
+            <div className="grid grid-cols-3 grid-rows-2 gap-3">
+              {/* Large wide shot spans 2 cols, 2 rows */}
+              <div className="col-span-2 row-span-2 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "420px" }}>
+                <Image src="/store/2555B829-65E6-44EC-B399-89FC3F9419FC.jpeg" alt="My Color Nails and Spa" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#160f1c]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              {/* Polish wall */}
+              <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "204px" }}>
+                <Image src="/store/4A795753-75D2-4A44-B1D6-B97B5448533B.jpeg" alt="Nail polish wall" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              {/* Coffee bar */}
+              <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "204px" }}>
+                <Image src="/store/A4E8EF0D-314F-4D83-B8E9-F33D7A601F16.jpeg" alt="Coffee bar" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+            {/* Bottom row of 3 */}
+            <div className="grid grid-cols-3 gap-3 mt-3">
+              {[
+                { src: "/store/70F97C0E-CCC3-401D-8B42-67F05F4F95D7.jpeg", alt: "Pedicure chairs" },
+                { src: "/store/5E3D290D-D212-4E93-8A67-00AE2F7615DD.jpeg", alt: "Salon floor" },
+                { src: "/store/3FA8720D-2CE9-4534-81A3-934F14052F72.jpeg", alt: "Salon interior" },
+              ].map(({ src, alt }) => (
+                <div key={src} className="relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+                  <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
       {/* ── GALLERY CTA ── */}
       <section className="relative py-24 px-6 overflow-hidden bg-[#1c1230]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(80,30,110,0.5),transparent)]" />
