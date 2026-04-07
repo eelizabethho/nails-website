@@ -26,7 +26,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative w-full aspect-4/5 overflow-hidden border border-[#c9a84c]/20">
                   <Image
-                    src="/store/209260AB-C8CB-42E9-AEA2-1CBC89AB7C95.jpeg"
+                    src="/store/3FA8720D-2CE9-4534-81A3-934F14052F72.jpeg"
                     alt="My Color Nails and Spa interior"
                     fill
                     className="object-cover"
@@ -40,25 +40,34 @@ export default function AboutPage() {
 
             <AnimateIn direction="right">
               <div className="flex flex-col gap-6">
-                <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>About Us</p>
-                <h2 className="text-4xl font-bold text-[#f0e8d8] leading-snug" style={{ fontFamily: "var(--font-playfair)" }}>
+                <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase" style={{ fontFamily: "var(--font-jost)" }}>About My Color Nails &amp; Spa</p>
+                <h2 className="text-4xl font-bold text-[#f5eee0] leading-snug" style={{ fontFamily: "var(--font-playfair)" }}>
                   Crafted with Care,<br />
                   <span className="italic text-[#c9a84c]">Every Time</span>
                 </h2>
                 <span className="gold-divider-shimmer w-16 block" />
-                <p className="text-[#c8b89a] leading-relaxed">
-                  We are a boutique nail studio dedicated to making every client feel seen and celebrated.
-                  From the moment you sit down, your comfort and satisfaction are our top priority.
+                <p className="text-[#d4c4a8] leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>
+                  At My Color Nails &amp; Spa, every detail is crafted with care to create a space where beauty meets relaxation.
                 </p>
-                <p className="text-[#c8b89a] leading-relaxed">
-                  Our team of skilled nail artists brings precision, creativity, and a genuine love
-                  for the craft to every single appointment — whether it&apos;s a clean nude set or an
-                  elaborate custom design.
+                <p className="text-[#d4c4a8] leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>
+                  We are a boutique salon in Manassas dedicated to delivering high-quality nail services, personalized designs, and deeply relaxing spa experiences. From precision nail artistry to our signature head spa treatments, every service is designed to help you feel refreshed, confident, and taken care of.
+                </p>
+                <p className="text-[#d4c4a8] leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>
+                  Our team specializes in custom nail artistry — from clean, minimal sets to the most intricate and complex designs. Whether you come in with a simple idea or a detailed inspiration, we have the skill and creativity to bring it to life with precision.
+                </p>
+                <p className="text-[#d4c4a8] leading-relaxed" style={{ fontFamily: "var(--font-jost)" }}>
+                  We focus on both results and experience — ensuring every visit feels calm, clean, and thoughtfully executed.
                 </p>
                 <ul className="flex flex-col gap-3 mt-2">
-                  {["Premium, safe products only", "Strict sanitation standards", "Personalized service every visit"].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>
-                      <span className="text-[#c9a84c] text-xs">✦</span>
+                  {[
+                    "Premium products and strict hygiene standards",
+                    "Experts in Gel-X, acrylic, and advanced nail design",
+                    "Ability to execute highly detailed, complex nail art",
+                    "Signature head spa and spa pedicure experiences",
+                    "Personalized service tailored to each client",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-[#d4c4a8]" style={{ fontFamily: "var(--font-jost)" }}>
+                      <span className="text-[#c9a84c] text-xs shrink-0">✦</span>
                       {item}
                     </li>
                   ))}
