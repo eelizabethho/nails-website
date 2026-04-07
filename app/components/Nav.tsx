@@ -26,6 +26,7 @@ export default function Nav() {
 
   return (
     <>
+      {/* Nav bar — always on top (z-50) */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 bg-[#0d0a08]/90 backdrop-blur-sm border-b border-[#c9a84c]/20">
         <Link href="/" onClick={() => setOpen(false)}>
           <Image src="/LOGO.PNG" alt="My Color Nails and Spa" width={70} height={32} className="object-contain" priority />
@@ -47,21 +48,39 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* Hamburger */}
+        {/* Hamburger — z-index is fine here since nav is z-50 and menu is z-40 */}
         <button
-          className="md:hidden text-[#c9a84c] relative z-60 p-2"
+          className="md:hidden text-[#c9a84c] p-2"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(prev => !prev)}
         >
-          <span className={`block w-5 h-px bg-current transition-all duration-300 ${open ? "rotate-45 translate-y-1.25" : ""}`} />
-          <span className={`block w-5 h-px bg-current mt-1 transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-px bg-current mt-1 transition-all duration-300 ${open ? "-rotate-45 -translate-y-2.25" : ""}`} />
+          <span
+            className="block w-5 bg-current transition-all duration-300"
+            style={{
+              height: "1px",
+              transform: open ? "rotate(45deg) translate(0px, 6px)" : "none",
+            }}
+          />
+          <span
+            className="block w-5 bg-current mt-1.5 transition-all duration-300"
+            style={{
+              height: "1px",
+              opacity: open ? 0 : 1,
+            }}
+          />
+          <span
+            className="block w-5 bg-current mt-1.5 transition-all duration-300"
+            style={{
+              height: "1px",
+              transform: open ? "rotate(-45deg) translate(0px, -6px)" : "none",
+            }}
+          />
         </button>
       </nav>
 
-      {/* Mobile menu — always in DOM, shown/hidden via CSS */}
+      {/* Mobile menu — z-40 so the nav (z-50) with hamburger stays on top */}
       <div
-        className={`fixed inset-0 z-55 flex flex-col items-center justify-center gap-10 bg-[#0d0a08] transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-[#0d0a08] transition-all duration-300 md:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
