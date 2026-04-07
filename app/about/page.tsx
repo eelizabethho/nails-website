@@ -22,7 +22,7 @@ export default function AboutPage() {
             priority
           />
           <div className="absolute inset-0 bg-linear-to-b from-[#140d18]/30 via-transparent to-[#140d18]/60" />
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center w-full px-6">
             <p className="tracking-[0.35em] text-[#c9a84c] text-xs uppercase mb-2" style={{ fontFamily: "var(--font-jost)" }}>Our Story</p>
             <h1 className="text-5xl md:text-6xl font-bold text-[#f5eee0]" style={{ fontFamily: "var(--font-playfair)" }}>About Us</h1>
           </div>
@@ -79,21 +79,20 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#f5eee0] text-center mb-2" style={{ fontFamily: "var(--font-playfair)" }}>Step Inside</h2>
             <span className="gold-divider-shimmer w-24 mx-auto block mb-10" />
             {/* Top row: big + tall */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="col-span-2 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="md:col-span-2 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/2555B829-65E6-44EC-B399-89FC3F9419FC.jpeg" alt="Salon interior" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+              <div className="md:col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/4A795753-75D2-4A44-B1D6-B97B5448533B.jpeg" alt="Nail polish wall" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              {/* Bottom row: 3 equal */}
-              <div className="col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+              <div className="md:col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/70F97C0E-CCC3-401D-8B42-67F05F4F95D7.jpeg" alt="Pedicure chairs" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+              <div className="md:col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/A4E8EF0D-314F-4D83-B8E9-F33D7A601F16.jpeg" alt="Coffee bar and waiting area" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
+              <div className="md:col-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/5E3D290D-D212-4E93-8A67-00AE2F7615DD.jpeg" alt="Salon interior" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>

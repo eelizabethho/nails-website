@@ -314,23 +314,21 @@ export default function Home() {
           </AnimateIn>
           {/* Big + side layout */}
           <AnimateIn direction="up" delay={100}>
-            <div className="grid grid-cols-3 grid-rows-2 gap-3">
-              {/* Large wide shot spans 2 cols, 2 rows */}
-              <div className="col-span-2 row-span-2 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "420px" }}>
+            {/* Mobile: single column stack. md+: big left + 2 stacked right */}
+            <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3">
+              <div className="md:col-span-2 md:row-span-2 relative aspect-video md:aspect-auto overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group md:min-h-96">
                 <Image src="/store/2555B829-65E6-44EC-B399-89FC3F9419FC.jpeg" alt="My Color Nails and Spa" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-linear-to-t from-[#160f1c]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              {/* Polish wall */}
-              <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "204px" }}>
+              <div className="md:col-span-1 md:row-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/4A795753-75D2-4A44-B1D6-B97B5448533B.jpeg" alt="Nail polish wall" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              {/* Coffee bar */}
-              <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group" style={{ minHeight: "204px" }}>
+              <div className="md:col-span-1 md:row-span-1 relative aspect-video overflow-hidden border border-[#c9a84c]/15 hover:border-[#c9a84c]/50 transition-all duration-500 group">
                 <Image src="/store/A4E8EF0D-314F-4D83-B8E9-F33D7A601F16.jpeg" alt="Coffee bar" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
-            {/* Bottom row of 3 */}
-            <div className="grid grid-cols-3 gap-3 mt-3">
+            {/* Bottom row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
               {[
                 { src: "/store/70F97C0E-CCC3-401D-8B42-67F05F4F95D7.jpeg", alt: "Pedicure chairs" },
                 { src: "/store/5E3D290D-D212-4E93-8A67-00AE2F7615DD.jpeg", alt: "Salon floor" },
