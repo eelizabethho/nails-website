@@ -78,34 +78,32 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu — z-40 so the nav (z-50) with hamburger stays on top */}
-      <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-[#0d0a08] transition-all duration-300 md:hidden ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <ul className="flex flex-col items-center gap-8 text-xl tracking-widest uppercase text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>
-          {links.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                onClick={() => setOpen(false)}
-                className={`hover:text-[#c9a84c] transition-colors duration-300 ${pathname === href ? "text-[#c9a84c]" : ""}`}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/#booking"
-          onClick={() => setOpen(false)}
-          className="px-12 py-4 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0d0a08] transition-all duration-300 text-sm tracking-widest uppercase"
-          style={{ fontFamily: "var(--font-jost)" }}
-        >
-          Book Now
-        </Link>
-      </div>
+      {/* Mobile menu — only rendered when open */}
+      {open && (
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-[#0d0a08]">
+          <ul className="flex flex-col items-center gap-8 text-xl tracking-widest uppercase text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className={`hover:text-[#c9a84c] transition-colors duration-300 ${pathname === href ? "text-[#c9a84c]" : ""}`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/#booking"
+            onClick={() => setOpen(false)}
+            className="px-12 py-4 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0d0a08] transition-all duration-300 text-sm tracking-widest uppercase"
+            style={{ fontFamily: "var(--font-jost)" }}
+          >
+            Book Now
+          </Link>
+        </div>
+      )}
     </>
   );
 }
