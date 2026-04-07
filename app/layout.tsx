@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Jost } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#0d0a08] text-[#f0e8d8]">
         <div className="page-enter flex flex-col min-h-full">
           {children}
+          <ScrollToTop />
         </div>
       </body>
     </html>
