@@ -9,10 +9,8 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Close on route change
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  // Lock body scroll when open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -26,79 +24,85 @@ export default function Nav() {
 
   return (
     <>
-      {/* Nav bar — always on top (z-50) */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 bg-[#0d0a08]/90 backdrop-blur-sm border-b border-[#c9a84c]/20">
+      {/* Nav bar */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1rem 2rem", backgroundColor: "rgba(13,10,8,0.95)", borderBottom: "1px solid rgba(201,168,76,0.2)" }}>
         <Link href="/" onClick={() => setOpen(false)}>
-          <Image src="/LOGO.PNG" alt="My Color Nails and Spa" width={70} height={32} className="object-contain" priority />
+          <Image src="/LOGO.PNG" alt="My Color Nails and Spa" width={70} height={32} style={{ objectFit: "contain" }} priority />
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>
+        <ul className="hidden md:flex" style={{ listStyle: "none", display: "flex", alignItems: "center", gap: "2rem", margin: 0, padding: 0 }}>
           {links.map(({ href, label }) => (
             <li key={href}>
-              <Link href={href} className={`hover:text-[#c9a84c] transition-colors duration-300 ${pathname === href ? "text-[#c9a84c]" : ""}`}>
+              <Link href={href} style={{ color: pathname === href ? "#c9a84c" : "#c8b89a", textDecoration: "none", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                 {label}
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/#booking" className="px-5 py-2 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0d0a08] transition-all duration-300">
+            <Link href="/#booking" style={{ padding: "0.5rem 1.25rem", border: "1px solid #c9a84c", color: "#c9a84c", textDecoration: "none", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>
               Book Now
             </Link>
           </li>
         </ul>
 
-        {/* Hamburger — z-index is fine here since nav is z-50 and menu is z-40 */}
+        {/* Hamburger button — always accessible at z-200 */}
         <button
-          className="md:hidden text-[#c9a84c] p-2"
+          className="md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(prev => !prev)}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "0.5rem", zIndex: 200, position: "relative" }}
         >
-          <span
-            className="block w-5 bg-current transition-all duration-300"
-            style={{
-              height: "1px",
-              transform: open ? "rotate(45deg) translate(0px, 6px)" : "none",
-            }}
-          />
-          <span
-            className="block w-5 bg-current mt-1.5 transition-all duration-300"
-            style={{
-              height: "1px",
-              opacity: open ? 0 : 1,
-            }}
-          />
-          <span
-            className="block w-5 bg-current mt-1.5 transition-all duration-300"
-            style={{
-              height: "1px",
-              transform: open ? "rotate(-45deg) translate(0px, -6px)" : "none",
-            }}
-          />
+          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "#c9a84c", transition: "transform 0.3s", transform: open ? "rotate(45deg) translate(0px, 7px)" : "none" }} />
+          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "#c9a84c", marginTop: "5px", transition: "opacity 0.3s", opacity: open ? 0 : 1 }} />
+          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "#c9a84c", marginTop: "5px", transition: "transform 0.3s", transform: open ? "rotate(-45deg) translate(0px, -7px)" : "none" }} />
         </button>
       </nav>
 
-      {/* Mobile menu — only rendered when open */}
+      {/* Mobile menu overlay */}
       {open && (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-[#0d0a08]">
-          <ul className="flex flex-col items-center gap-8 text-xl tracking-widest uppercase text-[#c8b89a]" style={{ fontFamily: "var(--font-jost)" }}>
+        <div
+          className="md:hidden"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 150,
+            backgroundColor: "#0d0a08",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "2rem",
+          }}
+        >
+          {/* Close button inside menu */}
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            style={{ position: "absolute", top: "1.25rem", right: "2rem", background: "none", border: "none", cursor: "pointer", padding: "0.5rem" }}
+          >
+            <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "#c9a84c", transform: "rotate(45deg) translate(0px, 0px)" }} />
+            <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "#c9a84c", transform: "rotate(-45deg) translate(0px, -2px)" }} />
+          </button>
+
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}>
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`hover:text-[#c9a84c] transition-colors duration-300 ${pathname === href ? "text-[#c9a84c]" : ""}`}
+                  style={{ color: pathname === href ? "#c9a84c" : "#c8b89a", textDecoration: "none", fontSize: "1.25rem", letterSpacing: "0.2em", textTransform: "uppercase" }}
                 >
                   {label}
                 </Link>
               </li>
             ))}
           </ul>
+
           <Link
             href="/#booking"
             onClick={() => setOpen(false)}
-            className="px-12 py-4 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0d0a08] transition-all duration-300 text-sm tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-jost)" }}
+            style={{ padding: "1rem 3rem", border: "1px solid #c9a84c", color: "#c9a84c", textDecoration: "none", fontSize: "0.875rem", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: "1rem" }}
           >
             Book Now
           </Link>
